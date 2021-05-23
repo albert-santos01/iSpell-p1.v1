@@ -159,6 +159,7 @@ void check_spelling_menu(HashTable *dictionary){
  */
 int main_menu(HashTable *dictionary){
 
+   // printf("hola %llu", strlen("hola"));
     int option = -1;
     while (option != 0) {
         printf("\n========= Menu ===========\n");

@@ -4,36 +4,46 @@
 
 #include "generate_candidates.h"
 #include "linked_list.h"
+#include "utils.h"
 
 void candidates_by_substitution(char* word,HashTable *d, HashTable *suggestions) {
 
     char *candidate;
     int l= strlen(word);
-
-
     char c;
     int i;
     for(i=0;i<l;i++) {
-        candidate = (char*)malloc((l+1)*sizeof(char));
+        candidate = (char*)malloc((l+2)*sizeof(char));
         strcpy(candidate,word);
+        candidate
         for (c = 'a'; c <= 'z'; c++) {
 
-            candidate[i]=c;
+
             if(find_word_info(d,candidate)) {
                 insert_word_info(suggestions,candidate);
-                
-
             }
-         
-
         }
-
     }
 
 }
 
 
 void candidates_by_insertion(char* word, HashTable *d, HashTable *suggestions) {
+    char *candidate;
+    int l= strlen(word);
+    char c;
+    int i;
+    for(i=0;i<l;i++) {
+        candidate = (char*)malloc((l+1)*sizeof(char));
+        strcpy(candidate,word);
+        for (c = 'a'; c <= 'z'; c++) {
+            swap_to_position(candidate,c,i);
+            if(find_word_info(d,candidate)) {
+                insert_word_info(suggestions,candidate);
+            }
+        }
+    }
+
 
     
 }

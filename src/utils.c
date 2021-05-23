@@ -68,3 +68,7 @@ int read_int_option(const char* msg) {
 
     return option;
 }
+char* swap_to_position(char * word,char c_variable,int position){
+
+    return word;
+}
