@@ -7,6 +7,7 @@
 #include <stdbool.h>
 #include <unistd.h>
 #include <ctype.h>
+#include <math.h>
 
 #define MAX_WORD_LENGTH 60
 #define MAX_PATH_LENGTH 150
@@ -30,6 +31,6 @@ bool scan_line(char* message, char* format, void* buffer);
 bool exists(char *filepath);
 void flush_input();
 int read_int_option(const char* msg);
-char* swap_to_position(char * word,char c_variable,int position);
+char concat_strings(char* string1, char* string2);
 #endif /* UTILS_H */
 

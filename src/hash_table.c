@@ -1,5 +1,5 @@
 #include "hash_table.h"
-#include <math.h>
+
 
 
 /**
