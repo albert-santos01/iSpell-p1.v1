@@ -57,7 +57,7 @@ void menu_load_new_dictionary(HashTable *dictionary) {
     /**
     strcpy(file_name,"");
     strcat(file_name,BASE_DATA_DIR);
-    strcat(file_name,SEP_TAB_LIN);
+    strcat(file_name,SEP_TAB_WIN);
     strcat(file_name,name);
     */
     printf("Loading dictionary from file: %s\n",file_name);
@@ -229,7 +229,6 @@ int main(int argc, char *argv[]) {
     printf("Loading dictionary from file: %s\n",file_name);
 
     load_dictionary(&dictionary,file_name);
-    printf("Dictionary loaded!\n");
 
     main_menu(&dictionary);
 

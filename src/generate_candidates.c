@@ -87,6 +87,7 @@ void candidates_by_swapping(char* word, HashTable *d, HashTable *suggestions) {
 }
 
 void candidates_by_deletion(char* word, HashTable *d, HashTable *suggestions) {
+
     char *candidate;
     int l = strlen(word);
     char c;
@@ -100,6 +101,7 @@ void candidates_by_deletion(char* word, HashTable *d, HashTable *suggestions) {
             contador++;
         }
         contador++;
+
         for (int j = contador; j < l; ++j) {
             candidate[word_cont] = word[j];
             word_cont++;

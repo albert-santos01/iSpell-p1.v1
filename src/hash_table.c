@@ -14,9 +14,9 @@ int hash_mod(char *word,int n) {
     /**
     int total=0;
     for (int i = 0; i <l ; ++i) {
-        total += word[i]* pow(10,l-i);
+        c= word[i];
+        total += c* pow(10,l-i);
     }
-    //TODO: Mirar si delvolver -1 en caso de wtf
      */
     long long int total=0;
     for (int i = 0; i <l ; ++i) {
@@ -106,7 +106,6 @@ bool delete_word_info(HashTable* dictionary, char* word) {
 
 
 /**
- * TODO: PREGUNTAR SI SE HACE ASI PUTA!!!!!!!!!!!!!!!!!!!!!!1111
  *
  * Prints the number of words in the dictionary followed by the words in the dictionary.
     if empty, it prints "The dictionary is empty".
