@@ -30,8 +30,10 @@ void insert_into_list(LinkedList* l, char* c) {
     strcpy(newElem->data, c);
 
     newElem->next = l->start;
-    if (l->start != NULL)
+    if (l->start != NULL){
         l->start->prev = newElem;
+    }
+
     newElem->prev = NULL;
 
     l->start = newElem;
@@ -90,7 +92,9 @@ bool delete_from_list(LinkedList* l, char* word) {
 */
 void print_list(LinkedList l) {
     Node* p;
-    for (p = l.start; p != NULL; p = p->next)
+    for (p = l.start; p != NULL; p = p->next){
         printf("%s\n", p->data);
+    }
+
 }
 

@@ -11,12 +11,22 @@ int hash_mod(char *word,int n) {
 
     int l= strlen(word);
     char c;
+    /**
     int total=0;
     for (int i = 0; i <l ; ++i) {
         total += word[i]* pow(10,l-i);
     }
     //TODO: Mirar si delvolver -1 en caso de wtf
-    return total%n;
+     */
+    long long int total=0;
+    for (int i = 0; i <l ; ++i) {
+        c =word[i];
+        total=total*10 +c;
+
+    }
+    int solution =(total%n);
+
+    return solution;
 }
 
 /**
@@ -25,8 +35,11 @@ int hash_mod(char *word,int n) {
 void init_table(HashTable* dictionary, char* name) {
     dictionary->size = 0;
     strcpy(dictionary->name, name);
-    for (int i = 0; i < N; ++i)
+    for (int i = 0; i < N; ++i){
         init_list(&(dictionary->list[i]));
+    }
+
+
 }
 
 /**
@@ -72,7 +85,6 @@ bool insert_word_info(HashTable* dictionary, char* word) {
         dictionary->size++;
         return true;
     }
-
 }
 
 

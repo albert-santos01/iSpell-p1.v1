@@ -49,12 +49,17 @@ void menu_load_new_dictionary(HashTable *dictionary) {
     scanf("%s", name);
     flush_input();
 
-
+    strcpy(file_name,"..");
+    strcat(file_name,SEP_TAB_WIN);
+    strcat(file_name,BASE_DATA_DIR);
+    strcat(file_name,SEP_TAB_WIN);
+    strcat(file_name,name);
+    /**
     strcpy(file_name,"");
     strcat(file_name,BASE_DATA_DIR);
     strcat(file_name,SEP_TAB_LIN);
     strcat(file_name,name);
-
+    */
     printf("Loading dictionary from file: %s\n",file_name);
 
     load_dictionary(dictionary,file_name);
@@ -66,6 +71,7 @@ void menu_load_new_dictionary(HashTable *dictionary) {
  * Menu find a word in the dictionary selected
  */
 void menu_find_word(HashTable* dictionary) {
+
     if(dictionary->size > 0){
         char word[MAX_WORD_LENGTH];
 
@@ -131,9 +137,6 @@ void menu_delete_word(HashTable *dictionary) {
  */
 
 void check_spelling_menu(HashTable *dictionary){
-
-
-
     if(dictionary->size > 0){
         char word[MAX_WORD_LENGTH];
         scan_line("Enter word: ", "%s", word);
@@ -211,13 +214,18 @@ int main(int argc, char *argv[]) {
     init_table(&dictionary, "Dictionary"); // reset it
 
     char* file_name=(char*)malloc(MAX_PATH_LENGTH*sizeof(char));
-  
 
+    strcpy(file_name,"..");
+    strcat(file_name,SEP_TAB_WIN);
+    strcat(file_name,BASE_DATA_DIR);
+    strcat(file_name,SEP_TAB_WIN);
+    strcat(file_name,"word_list_en_1.txt");
+    /**
     strcpy(file_name,"");
     strcat(file_name,BASE_DATA_DIR);
     strcat(file_name,SEP_TAB_WIN);
     strcat(file_name,"word_list_en_1.txt");
-
+    **/
     printf("Loading dictionary from file: %s\n",file_name);
 
     load_dictionary(&dictionary,file_name);
