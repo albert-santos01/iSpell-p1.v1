@@ -47,10 +47,11 @@ Node* find_in_list(LinkedList l, char* word) {
     // YOUR CODE HERE
     Node* aux= l.start;
     while (aux!=NULL){
-        if (aux->data==word){
+        if(strcmp(aux->data, word) == 0){
             return aux;
+        } else{
+            aux = aux->next;
         }
-        aux= aux->next;
     }
     return NULL;
 }
@@ -61,15 +62,14 @@ Node* find_in_list(LinkedList l, char* word) {
 */
 void delete_node(LinkedList* l, Node* p) {
     // YOUR CODE HERE
-    Node * aux= find_in_list(*l,p->data);
-    if (aux==NULL){
-        printf("%s doesn't exists\n", p->data);
-        //Don't do nothing
+    if (p->prev != NULL){
+        p->prev->next = p->next;
     } else{
-        aux->prev=aux->next;
-        aux->next->prev=aux->prev;
-        free(aux);
+        l->start = p->prev;
+    } if(p->next != NULL){
+        p->next->prev = p->prev;
     }
+    free(p);
 }
 
 /**
@@ -79,12 +79,11 @@ void delete_node(LinkedList* l, Node* p) {
 bool delete_from_list(LinkedList* l, char* word) {
     // YOUR CODE HERE
     Node * aux= find_in_list(*l,word);
-    if (aux== NULL){
-        return false;
-    } else{
-        delete_node(l,aux);
+    if (aux != NULL){
+        delete_node(l, aux);
         return true;
     }
+    return false;
 }
 
 /**
